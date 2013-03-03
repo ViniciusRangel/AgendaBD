@@ -2,7 +2,7 @@ package com.unb.agenda.model.dao;
 
 import java.util.Collection;
 
-public abstract class AbtractDAO<T> {
+public abstract class AbstractDAO<T> {
 	protected static final String SQL_DRIVER = "com.mysql.jdbc.Driver";
     protected static final String SQL_URL    = "jdbc:mysql://127.0.0.1/agenda";
     protected static final String SQL_USER   = "root";
@@ -15,3 +15,4 @@ public abstract class AbtractDAO<T> {
 	public abstract Collection<T> select();
 
 }
+

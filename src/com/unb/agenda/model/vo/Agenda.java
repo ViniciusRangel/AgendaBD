@@ -1,4 +1,4 @@
-package com.agenda.unb.model.vo;
+package com.unb.agenda.model.vo;
 
 public class Agenda {
 	
