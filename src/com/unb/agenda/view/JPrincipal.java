@@ -1,4 +1,4 @@
-package view;
+package com.unb.agenda.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
+
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

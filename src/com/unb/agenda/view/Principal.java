@@ -1,6 +1,5 @@
-package classes;
+package com.unb.agenda.view;
 
-import view.JPrincipal;
 
 public class Principal {
 

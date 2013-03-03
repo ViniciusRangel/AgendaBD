@@ -1,4 +1,4 @@
-package view;
+package com.unb.agenda.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
