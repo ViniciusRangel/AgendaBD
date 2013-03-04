@@ -50,7 +50,7 @@ public class JPrincipal extends JFrame {
 		JMenuItem mntmCadastroCliente = new JMenuItem("cadastro cliente");
 		mntmCadastroCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JCadeClienteJDBC jc = new JCadeClienteJDBC();
+				JFrameCliente jc = new JFrameCliente();
 				jc.setVisible(true);
 			}
 		});
@@ -65,7 +65,7 @@ public class JPrincipal extends JFrame {
 		JMenuItem mntmConsultar = new JMenuItem("consultar");
 		mntmConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JCadeConCliente jc = new JCadeConCliente();
+				JFrameCliente jc = new JFrameCliente();
 				jc.setVisible(true);
 			}
 		});

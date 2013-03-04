@@ -11,10 +11,10 @@ import com.unb.agenda.model.dao.AbstractDAO;
 import com.unb.agenda.model.vo.Cliente;
 
 public class ClienteDAO extends AbstractDAO<Cliente>  {
-	private static final String SQL_INSERT = "INSERT INTO cliente(name,endereco,cpf) values(?,?,?)";
+	private static final String SQL_INSERT = "INSERT INTO cliente(name,endereco,cpf) values(?,?,?);";
 	private static final String SQL_DELETE = "delete from cliente where id = ? ;";
 	private static final String SQL_UPDATE = "update cliente set name = ? ,endereco = ?,cpf =? where id = ?;";
-	private static final String SQL_SELECT = "select * from cliente where cpf = ? ;";
+	private static final String SQL_SELECT = "select * from cliente where id = ? ;";
 	private static final String SQL_SELECTALL = "select * from cliente;";
 
 	@Override
@@ -173,7 +173,7 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 			while(rs.next()){
 				Cliente c = new Cliente();
 				c.setId(rs.getInt("id"));
-				c.setNome(rs.getString("nome"));
+				c.setNome(rs.getString("name"));
 				c.setEndereco(rs.getString("endereco"));
 				c.setCpf(rs.getInt("cpf"));
 					

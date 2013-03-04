@@ -50,6 +50,11 @@ public class Cliente {
 	public void setCpf(int cpf) {
 		this.cpf = cpf;
 	}
-
+	
+	@Override
+	public String toString() {
+		
+		return " ID: "+this.id + " Nome:  " + this.nome;
+	}
 
 }
