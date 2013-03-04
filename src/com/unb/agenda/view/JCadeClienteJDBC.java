@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
@@ -13,12 +14,19 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import com.unb.agenda.controller.ActionCriarContato;
+import com.unb.agenda.model.dao.AbstractDAO;
+import com.unb.agenda.model.dao.ClienteDAO;
+import com.unb.agenda.model.vo.Cliente;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class JCadeClienteJDBC extends JFrame {
 
@@ -119,34 +127,13 @@ public class JCadeClienteJDBC extends JFrame {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				try {
-					// Cria uma classe de conexão
-					Class.forName("com.mysql.jdbc.Driver");
-					
-					//cria uma variavel
-					Connection con;
-					con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/agenda","root","root");
-					
-					String query="INSERT INTO cliente(name, endereco,cpf) VALUES(?,?,?)";
-					
-					PreparedStatement stmt=con.prepareStatement(query);
-					
-					stmt.setString(1,textField.getText());
-					stmt.setString(2,textField_1.getText());
-					stmt.setString(3,textField_2.getText());
-					
-					stmt.executeUpdate();
-					
-					stmt.close();
-					con.close();
-					
-				} catch (SQLException e2) {
-					System.out.println("ocorreu um erro de sql");
-				}
-				 catch (ClassNotFoundException e1) {
-					System.out.println("nao foi possivel encontrar uma classe");
-				}
+				JTextField[] text= new JTextField[3];
+				text[0]=textField;
+				text[1]=textField_1;
+				text[2]=textField_2;
 				
+				ActionCriarContato criador =new ActionCriarContato();
+				criador.salvaContato(text);
 			}
 		});
 		btnSalvar.setBounds(382, 251, 89, 23);

@@ -23,6 +23,11 @@ import javax.swing.JEditorPane;
 import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import com.unb.agenda.model.dao.AbstractDAO;
+import com.unb.agenda.model.dao.ClienteDAO;
+import com.unb.agenda.model.vo.Cliente;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
@@ -108,7 +113,7 @@ public class JCadeConCliente extends JFrame {
 		table.setFont(new Font("Tahoma", Font.BOLD, 11));
 		table.setBackground(Color.WHITE);
 		
-		JLabel lblNome = new JLabel("nome");
+		JLabel lblNome = new JLabel("cpf");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNome.setBounds(30, 71, 46, 14);
 		contentPane.add(lblNome);
@@ -122,39 +127,17 @@ public class JCadeConCliente extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
+				Cliente c =new Cliente();
+				
+				AbstractDAO<Cliente> db= new ClienteDAO();
+				c =db.select(Integer.parseInt(textField.getText()));	
+						
+				DefaultTableModel model= (DefaultTableModel) table.getModel();
 					
-					Connection con;
-					
-					con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/agenda","root","root");
-					
-					String query ="SELECT * FROM cliente where name=?";
-					
-					PreparedStatement cmd;
-					
-					cmd = con.prepareStatement(query);
-					
-					cmd.setString(1,textField.getText());
-					
-					ResultSet rs;
-					
-					rs= cmd.executeQuery();
-					
-					DefaultTableModel model= (DefaultTableModel) table.getModel();
-					
-					model.setNumRows(0);
-					
-					while(rs.next()){
-						model.addRow(new Object[]{rs.getString("id"),rs.getString("name"),rs.getString("endereco"),rs.getString("cpf")});
-					}
-					
-				} catch (ClassNotFoundException e1) {
-					
-					System.out.println("não foi possivel encontrar a classe");
-				} catch (SQLException e) {
-					System.out.println("Ocorreu um erro de" + e.getMessage());
-				} 
+				model.setNumRows(0);
+				
+				model.addRow(new Object[]{c.getId(),c.getNome(),c.getEndereco(),c.getCpf()});
+							
 			}
 		});
 		btnNewButton.setBounds(332, 261, 89, 23);

@@ -11,7 +11,7 @@ public abstract class AbstractDAO<T> {
  	public abstract int insert(T arg1);
 	public abstract int update(T arg1);
 	public abstract int delete(T arg1);
-	public abstract T select(int id);
+	public abstract T select(int cpf);
 	public abstract Collection<T> select();
 
 }

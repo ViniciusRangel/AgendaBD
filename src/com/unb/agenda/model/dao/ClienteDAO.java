@@ -11,10 +11,10 @@ import com.unb.agenda.model.dao.AbstractDAO;
 import com.unb.agenda.model.vo.Cliente;
 
 public class ClienteDAO extends AbstractDAO<Cliente>  {
-	private static final String SQL_INSERT = "insert into cliente (nome,endereco,cpf) values(?,?,?);";
+	private static final String SQL_INSERT = "INSERT INTO cliente(name,endereco,cpf) values(?,?,?)";
 	private static final String SQL_DELETE = "delete from cliente where id = ? ;";
-	private static final String SQL_UPDATE = "update cliente set nome = ? ,endereco = ?,cpf =? where id = ?;";
-	private static final String SQL_SELECT = "select * from cliente where id = ? ;";
+	private static final String SQL_UPDATE = "update cliente set name = ? ,endereco = ?,cpf =? where id = ?;";
+	private static final String SQL_SELECT = "select * from cliente where cpf = ? ;";
 	private static final String SQL_SELECTALL = "select * from cliente;";
 
 	@Override
@@ -63,7 +63,7 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 			stm.setString(1, arg1.getNome());
 			stm.setString(2, arg1.getEndereco());
 			stm.setInt(3, arg1.getCpf());
-			stm.setInt(5, arg1.getId());
+			stm.setInt(4, arg1.getId());
 
 			r = stm.executeUpdate();
 		} catch (Exception e) {
@@ -112,7 +112,7 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 	}
 
 	@Override
-	public Cliente select(int id) {
+	public Cliente select(int cpf) {
 		
 		Connection conn = null;
 		PreparedStatement stm = null;
@@ -124,13 +124,13 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 			conn = DriverManager.getConnection(SQL_URL, SQL_USER,SQL_PASS);
 
 			stm = conn.prepareStatement(SQL_SELECT);
-			stm.setInt(1, id);
+			stm.setInt(1, cpf);
 		
 			rs = stm.executeQuery();
 			
 			if(rs.next()){
 				c.setId(rs.getInt("id"));
-				c.setNome(rs.getString("nome"));
+				c.setNome(rs.getString("name"));
 				c.setEndereco(rs.getString("endereco"));
 				c.setCpf(rs.getInt("cpf"));				
 			}
