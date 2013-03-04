@@ -1,6 +1,6 @@
 package com.unb.agenda.model.vo;
 
-public class Agenda {
+public class Cliente {
 	
 	private int id;
 	private String nome;
@@ -8,11 +8,11 @@ public class Agenda {
 	private int cpf;
 	
 
-	public Agenda(){
+	public Cliente(){
 		
 	}
 	
-	public Agenda(int id, String nome, String endereco, int cpf){
+	public Cliente(int id, String nome, String endereco, int cpf){
 		this.id = id;
 		this.nome=nome;
 		this.endereco = endereco;
@@ -50,5 +50,6 @@ public class Agenda {
 	public void setCpf(int cpf) {
 		this.cpf = cpf;
 	}
+
 
 }

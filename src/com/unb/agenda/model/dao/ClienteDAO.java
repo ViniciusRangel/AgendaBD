@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import com.unb.agenda.model.dao.AbstractDAO;
-import com.unb.agenda.model.vo.Agenda;
+import com.unb.agenda.model.vo.Cliente;
 
-public class AgendaDAO extends AbstractDAO<Agenda>  {
-	private static final String SQL_INSERT = "insert into contato (nome,endereco,email,tel) values(?,?,?,?);";
-	private static final String SQL_DELETE = "delete from contato where id = ? ;";
-	private static final String SQL_UPDATE = "update contato set nome = ? ,endereco = ?,email =? ,tel = ? where id = ?;";
-	private static final String SQL_SELECT = "select * from contato where id = ? ;";
-	private static final String SQL_SELECTALL = "select * from contato;";
+public class ClienteDAO extends AbstractDAO<Cliente>  {
+	private static final String SQL_INSERT = "insert into cliente (nome,endereco,cpf) values(?,?,?);";
+	private static final String SQL_DELETE = "delete from cliente where id = ? ;";
+	private static final String SQL_UPDATE = "update cliente set nome = ? ,endereco = ?,cpf =? where id = ?;";
+	private static final String SQL_SELECT = "select * from cliente where id = ? ;";
+	private static final String SQL_SELECTALL = "select * from cliente;";
 
 	@Override
-	public int insert(Agenda arg1) {
+	public int insert(Cliente arg1) {
 		int r = 0;
 		Connection conn = null;
 		PreparedStatement stm = null;
@@ -30,8 +30,8 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 			stm = conn.prepareStatement(SQL_INSERT);
 			stm.setString(1, arg1.getNome());
 			stm.setString(2, arg1.getEndereco());
-			stm.setString(3, arg1.getEmail());
-			stm.setString(4, arg1.getTelefone());
+			stm.setInt(3, arg1.getCpf());
+			
 
 			r = stm.executeUpdate();
 		} catch (Exception e) {
@@ -50,7 +50,7 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 	}
 
 	@Override
-	public int update(Agenda arg1) {
+	public int update(Cliente arg1) {
 		int r = 0;
 		Connection conn = null;
 		PreparedStatement stm = null;
@@ -62,8 +62,7 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 			stm = conn.prepareStatement(SQL_UPDATE);
 			stm.setString(1, arg1.getNome());
 			stm.setString(2, arg1.getEndereco());
-			stm.setString(3, arg1.getEmail());
-			stm.setString(4, arg1.getTelefone());
+			stm.setInt(3, arg1.getCpf());
 			stm.setInt(5, arg1.getId());
 
 			r = stm.executeUpdate();
@@ -83,7 +82,7 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 	}
 
 	@Override
-	public int delete(Agenda arg1) {
+	public int delete(Cliente arg1) {
 		int r = 0;
 		Connection conn = null;
 		PreparedStatement stm = null;
@@ -113,12 +112,12 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 	}
 
 	@Override
-	public Agenda select(int id) {
+	public Cliente select(int id) {
 		
 		Connection conn = null;
 		PreparedStatement stm = null;
 		ResultSet rs = null;
-		Agenda c = new Agenda();
+		Cliente c = new Cliente();
 		
 		try {
 			Class.forName(SQL_DRIVER);
@@ -133,8 +132,7 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 				c.setId(rs.getInt("id"));
 				c.setNome(rs.getString("nome"));
 				c.setEndereco(rs.getString("endereco"));
-				c.setTelefone(rs.getString("tel"));
-				c.setEmail(rs.getString("email"));
+				c.setCpf(rs.getInt("cpf"));				
 			}
 			
 			
@@ -155,13 +153,13 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 	}
 
 	@Override
-	public Collection<Agenda> select() {
+	public Collection<Cliente> select() {
 		
 		Connection conn = null;
 		PreparedStatement stm = null;
 		ResultSet rs = null;
 		
-		Collection<Agenda> list = new ArrayList<Agenda>();
+		Collection<Cliente> list = new ArrayList<Cliente>();
 	
 		try {
 			Class.forName(SQL_DRIVER);
@@ -173,13 +171,12 @@ public class AgendaDAO extends AbstractDAO<Agenda>  {
 			rs = stm.executeQuery();
 			
 			while(rs.next()){
-				Agenda c = new Agenda();
+				Cliente c = new Cliente();
 				c.setId(rs.getInt("id"));
 				c.setNome(rs.getString("nome"));
 				c.setEndereco(rs.getString("endereco"));
-				c.setTelefone(rs.getString("tel"));
-				c.setEmail(rs.getString("email"));
-				
+				c.setCpf(rs.getInt("cpf"));
+					
 				list.add(c);
 			}
 			
