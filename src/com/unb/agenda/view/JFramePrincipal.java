@@ -55,26 +55,6 @@ public class JFramePrincipal extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmCadastroCliente);
-		
-		JMenuItem mntmSair = new JMenuItem("sair");
-		mnNewMenu.add(mntmSair);
-		
-		JMenu mnConsulta = new JMenu("Consulta");
-		menuBar.add(mnConsulta);
-		
-		JMenuItem mntmConsultar = new JMenuItem("consultar");
-		mntmConsultar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrameCliente jc = new JFrameCliente();
-				jc.setVisible(true);
-			}
-		});
-		mnConsulta.add(mntmConsultar);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
-		System.out.println("nada nao");
 	}
 
 }
