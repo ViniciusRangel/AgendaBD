@@ -14,7 +14,7 @@ import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class JPrincipal extends JFrame {
+public class JFramePrincipal extends JFrame {
 
 	private JPanel contentPane;
 
@@ -25,7 +25,7 @@ public class JPrincipal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JPrincipal frame = new JPrincipal();
+					JFramePrincipal frame = new JFramePrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class JPrincipal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JPrincipal() {
+	public JFramePrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -78,3 +78,4 @@ public class JPrincipal extends JFrame {
 	}
 
 }
+

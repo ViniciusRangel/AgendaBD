@@ -19,7 +19,9 @@ import javax.swing.border.TitledBorder;
 
 import com.unb.agenda.controller.ActionAtualizarCliente;
 import com.unb.agenda.controller.ActionDeletarCliente;
+import com.unb.agenda.controller.ActionMontarCliente;
 import com.unb.agenda.controller.ActionSalvarCliente;
+import com.unb.agenda.controller.ActionSelecionarCliente;
 import com.unb.agenda.model.dao.AbstractDAO;
 import com.unb.agenda.model.dao.ClienteDAO;
 import com.unb.agenda.model.vo.Cliente;
@@ -145,6 +147,11 @@ public class JFrameCliente extends JFrame {
 				
 				ActionSalvarCliente criador =new ActionSalvarCliente();
 				criador.salvaContato(text);
+				
+				textField.setText("");
+				textField_1.setText("");
+				textField_2.setText("");
+				textField_3.setText("");
 			}
 		});
 		btnSalvar.setBounds(31, 299, 89, 23);
@@ -156,6 +163,11 @@ public class JFrameCliente extends JFrame {
 				
 				ActionDeletarCliente deletar = new ActionDeletarCliente();
 				deletar.deletarCliente(textField_3);
+				
+				textField.setText("");
+				textField_1.setText("");
+				textField_2.setText("");
+				textField_3.setText("");
 			}
 		});
 		btnDeletar.setBounds(147, 299, 89, 23);
@@ -186,36 +198,32 @@ public class JFrameCliente extends JFrame {
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox comb = (JComboBox) e.getSource();
+				
+				JTextField[] text= new JTextField[4];
+				text[0]=textField;
+				text[1]=textField_1;
+				text[2]=textField_2;
+				text[3]=textField_3;
+				
+				ActionSelecionarCliente criador =new ActionSelecionarCliente();
+				criador.selecionarCliente(text, comb);
 
-				if (comb.getSelectedIndex() != -1) {
-					Cliente cliente = (Cliente) comb.getSelectedItem();
-					
-					AbstractDAO<Cliente> db = new ClienteDAO();
-
-					Cliente c = db.select(cliente.getId());
-
-					textField_3.setText(String.valueOf(c.getId()));
-					textField.setText(c.getNome());
-					textField_1.setText(c.getEndereco());
-					textField_2.setText(String.valueOf(c.getCpf()));
-					
-				}
+				
 			}
 		});
 		comboBox.setBounds(66, 23, 388, 20);
 		panel_2.add(comboBox);						
+		
+		JLabel lblCliente = new JLabel("Cliente");
+		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCliente.setBounds(10, 26, 46, 14);
+		panel_2.add(lblCliente);
 	}
 	
 	public void montaClientes() {
 		
-		AbstractDAO<Cliente> db = new ClienteDAO();
-        Collection<Cliente>  list =db.select();
-		 
-        comboBox.removeAllItems();
-        
-		 for (Cliente cliente : list) {
-			  comboBox.addItem(cliente);
-		 } 
+		ActionMontarCliente montar = new ActionMontarCliente();
+		montar.montar(comboBox);
 	}
 	
 }

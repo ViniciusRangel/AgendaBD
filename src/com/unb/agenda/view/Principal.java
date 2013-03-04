@@ -8,7 +8,7 @@ public class Principal {
 	 */
 	public static void main(String[] args) {
 		
-		JPrincipal jp = new JPrincipal();
+		JFramePrincipal jp = new JFramePrincipal();
 		jp.setVisible(true);
 	}
 
