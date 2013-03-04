@@ -15,7 +15,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import com.unb.agenda.controller.ActionCriarContato;
+
+import com.unb.agenda.controller.ActionSalvarCliente;
 import com.unb.agenda.model.dao.AbstractDAO;
 import com.unb.agenda.model.dao.ClienteDAO;
 import com.unb.agenda.model.vo.Cliente;
@@ -132,7 +133,7 @@ public class JCadeClienteJDBC extends JFrame {
 				text[1]=textField_1;
 				text[2]=textField_2;
 				
-				ActionCriarContato criador =new ActionCriarContato();
+				ActionSalvarCliente criador =new ActionSalvarCliente();
 				criador.salvaContato(text);
 			}
 		});

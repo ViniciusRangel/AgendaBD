@@ -24,6 +24,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import com.unb.agenda.controller.ActionConsultarCliente;
 import com.unb.agenda.model.dao.AbstractDAO;
 import com.unb.agenda.model.dao.ClienteDAO;
 import com.unb.agenda.model.vo.Cliente;
@@ -127,16 +128,8 @@ public class JCadeConCliente extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Cliente c =new Cliente();
-				
-				AbstractDAO<Cliente> db= new ClienteDAO();
-				c =db.select(Integer.parseInt(textField.getText()));	
-						
-				DefaultTableModel model= (DefaultTableModel) table.getModel();
-					
-				model.setNumRows(0);
-				
-				model.addRow(new Object[]{c.getId(),c.getNome(),c.getEndereco(),c.getCpf()});
+				ActionConsultarCliente consulta = new ActionConsultarCliente();
+				consulta.consultarCliente(textField, table);
 							
 			}
 		});
