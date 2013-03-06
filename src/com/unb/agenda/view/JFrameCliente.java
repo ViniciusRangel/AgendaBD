@@ -1,41 +1,39 @@
 package com.unb.agenda.view;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collection;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
-
 import com.unb.agenda.controller.ActionAtualizarCliente;
 import com.unb.agenda.controller.ActionDeletarCliente;
 import com.unb.agenda.controller.ActionMontarCliente;
 import com.unb.agenda.controller.ActionSalvarCliente;
 import com.unb.agenda.controller.ActionSelecionarCliente;
-import com.unb.agenda.model.dao.AbstractDAO;
-import com.unb.agenda.model.dao.ClienteDAO;
 import com.unb.agenda.model.vo.Cliente;
 
 import javax.swing.JComboBox;
 
-public class JFrameCliente extends JFrame {
+public class  JFrameCliente extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField_Nome;
 	private JTextField textField_Endereco;
 	private JTextField textField_Cpf;
 	private JTextField textField_ID;
-	private JComboBox comboBox;
+	private JComboBox<Cliente> comboBox;
 
 	/**
 	 * Launch the application.
@@ -202,13 +200,13 @@ public class JFrameCliente extends JFrame {
 		btnAtualizar.setBounds(269, 299, 89, 23);
 		contentPane.add(btnAtualizar);
 		
-		comboBox = new JComboBox();		
+		comboBox = new JComboBox<Cliente>();		
 		
 		montaClientes();
 		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JComboBox comb = (JComboBox) e.getSource();
+				JComboBox<?> comb = (JComboBox<?>) e.getSource();
 				
 				JTextField[] text= new JTextField[4];
 				text[0]=textField_Nome;

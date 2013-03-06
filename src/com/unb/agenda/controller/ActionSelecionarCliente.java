@@ -9,7 +9,7 @@ import com.unb.agenda.model.vo.Cliente;
 
 public class ActionSelecionarCliente {
 	
-	public void selecionarCliente(JTextField[] text, JComboBox comb){
+	public void selecionarCliente(JTextField[] text, JComboBox<?> comb){
 		
 			
 			if (comb.getSelectedIndex() != -1) {

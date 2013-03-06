@@ -11,7 +11,7 @@ import com.unb.agenda.model.vo.Cliente;
 public class ActionMontarCliente {
 	
 		
-	public void montar(JComboBox comboBox){
+	public void montar(JComboBox<Cliente> comboBox){
 	
 		AbstractDAO<Cliente> db = new ClienteDAO();
         Collection<Cliente>  list =db.select();
