@@ -24,6 +24,8 @@ public class ActionSelecionarCliente {
 				text[1].setText(cliente1.getEndereco());
 				text[2].setText(String.valueOf(cliente1.getCpf()));
 				
+			}else{
+				
 			}		
 	}
 

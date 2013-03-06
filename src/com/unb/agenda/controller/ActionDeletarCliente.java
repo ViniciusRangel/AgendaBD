@@ -31,6 +31,8 @@ public class ActionDeletarCliente {
 				int msg_tipo = JOptionPane.INFORMATION_MESSAGE;
 				
 				JOptionPane.showMessageDialog(null, msg_corpo, msg_titulo,msg_tipo);
+			}else{
+				
 			}
 			
 		} catch (IllegalArgumentException e) {
