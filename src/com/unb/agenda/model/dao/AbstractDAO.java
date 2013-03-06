@@ -1,7 +1,21 @@
+/**************************************************************************
+ * @author vinicius
+ * @version 1.0
+ * Notice: Agenda Universiy Brazilian . All rights reserved.
+ * 
+ ***************************************************************************/
 package com.unb.agenda.model.dao;
 
 import java.util.Collection;
 
+/**
+ * 
+ * @author vinicius
+ *
+ * @param <T>
+ * Classe utilizada para prover as variaveis de conexão com banco de dados
+ * e implemetar funções de iserir atualizar selecionar e deletar
+ */
 public abstract class AbstractDAO<T> {
 	protected static final String SQL_DRIVER = "com.mysql.jdbc.Driver";
     protected static final String SQL_URL    = "jdbc:mysql://127.0.0.1/agenda";

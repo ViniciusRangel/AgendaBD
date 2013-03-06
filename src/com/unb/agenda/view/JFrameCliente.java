@@ -1,3 +1,10 @@
+/**************************************************************************
+ * @author vinicius
+ * @version 1.0
+ * Notice: Agenda Universiy Brazilian . All rights reserved.
+ * 
+ ***************************************************************************/
+
 package com.unb.agenda.view;
 
 
@@ -22,6 +29,13 @@ import com.unb.agenda.model.vo.Cliente;
 
 import javax.swing.JComboBox;
 
+/**
+ * 
+ * @author vinicius
+ * @version versão  agenda1.0
+ *
+ * Class jframe type of graphical user interface for interaction with the User
+ */
 public class  JFrameCliente extends JFrame {
 
 	/**
@@ -29,11 +43,11 @@ public class  JFrameCliente extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField_Nome=null;
-	private JTextField textField_Endereco=null;
-	private JTextField textField_Cpf=null;
-	private JTextField textField_ID=null;
-	private JComboBox<Cliente> comboBox=null;
+	private JTextField textField_Nome;
+	private JTextField textField_Endereco;
+	private JTextField textField_Cpf;
+	private JTextField textField_ID;
+	private JComboBox<Cliente> comboBox;
 
 	/**
 	 * Launch the application.
@@ -140,9 +154,17 @@ public class  JFrameCliente extends JFrame {
 		btnLimpar.setBounds(387, 299, 89, 23);
 		contentPane.add(btnLimpar);
 		
+		/**
+		 * função para inserir dados de um cliente no banco de dados
+		 */
+		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				/**
+				 * calls the function save contacts aiming interact with the controller
+				 */
 				
 				JTextField[] text= new JTextField[3];
 				text[0]=textField_Nome;
@@ -161,6 +183,10 @@ public class  JFrameCliente extends JFrame {
 		btnSalvar.setBounds(31, 299, 89, 23);
 		contentPane.add(btnSalvar);
 		
+		/**
+		 * function to delete a customer database
+		 */
+		
 		JButton btnDeletar = new JButton("Deletar");
 		btnDeletar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -177,6 +203,10 @@ public class  JFrameCliente extends JFrame {
 		btnDeletar.setBounds(147, 299, 89, 23);
 		contentPane.add(btnDeletar);
 		
+		/**
+		 * function to update the customer database
+		 */
+		
 		JButton btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -189,6 +219,11 @@ public class  JFrameCliente extends JFrame {
 				
 				ActionAtualizarCliente criador =new ActionAtualizarCliente();
 				criador.atualizarCliente(text);
+				
+				
+				/**
+				 * limpando as texts filds da tela
+				 */
 				
 				textField_Nome.setText("");
 				textField_Endereco.setText("");
@@ -203,6 +238,10 @@ public class  JFrameCliente extends JFrame {
 		comboBox = new JComboBox<Cliente>();		
 		
 		montaClientes();
+		
+		/**
+		 *  function to select customer
+		 */
 		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -224,6 +263,10 @@ public class  JFrameCliente extends JFrame {
 		panel_2.add(comboBox);						
 				
 	}
+	
+	/**
+	 * function used to describe the system data in a JComboBox
+	 */
 	
 	public void montaClientes() {
 		

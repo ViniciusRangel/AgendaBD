@@ -1,3 +1,9 @@
+/**************************************************************************
+ * @author vinicius
+ * @version 1.0
+ * Notice: Agenda Universiy Brazilian . All rights reserved.
+ * 
+ ***************************************************************************/
 package com.unb.agenda.controller;
 
 import java.util.Collection;

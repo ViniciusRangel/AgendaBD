@@ -1,3 +1,9 @@
+/**************************************************************************
+ * @author vinicius
+ * @version 1.0
+ * Notice: Agenda Universiy Brazilian . All rights reserved.
+ * 
+ ***************************************************************************/
 package com.unb.agenda.controller;
 
 import javax.swing.JComboBox;
@@ -6,8 +12,21 @@ import javax.swing.JTextField;
 import com.unb.agenda.model.dao.AbstractDAO;
 import com.unb.agenda.model.dao.ClienteDAO;
 import com.unb.agenda.model.vo.Cliente;
-
+/**
+ * 
+ * @author vinicius
+ * 
+ * Controller class that implements the method in selecting bnco data 
+ */
 public class ActionSelecionarCliente {
+	
+	/**
+	 * 
+	 * @param text
+	 * @param comb
+	 * function that selects data customers in the database and displays a JComboBox
+	 * 
+	 */
 	
 	public void selecionarCliente(JTextField[] text, JComboBox<?> comb){
 		

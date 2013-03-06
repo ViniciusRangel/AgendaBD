@@ -1,3 +1,9 @@
+/**************************************************************************
+ * @author vinicius
+ * @version 1.0
+ * Notice: Agenda Universiy Brazilian . All rights reserved.
+ * 
+ ***************************************************************************/
 package com.unb.agenda.model.dao;
 
 import java.sql.Connection;
@@ -10,6 +16,14 @@ import java.util.Collection;
 import com.unb.agenda.model.dao.AbstractDAO;
 import com.unb.agenda.model.vo.Cliente;
 
+/**
+ * 
+ * @author vinicius
+ * Classe principal da model onde se implemeta as funções de  atualizar selecionar e deletar
+ * e mais cadastrar especificadas na abstractDao 
+ *
+ */
+
 public class ClienteDAO extends AbstractDAO<Cliente>  {
 	private static final String SQL_INSERT = "INSERT INTO cliente(name,endereco,cpf) values(?,?,?);";
 	private static final String SQL_DELETE = "delete from cliente where id = ? ;";
@@ -17,6 +31,11 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 	private static final String SQL_SELECT = "select * from cliente where id = ? ;";
 	private static final String SQL_SELECTALL = "select * from cliente;";
 
+	
+	/**
+	 *função de inserção que recebe uma variavel do tipo cliente como parametro 
+	 */
+	
 	@Override
 	public int insert(Cliente arg1) {
 		int r = 0;
@@ -48,7 +67,11 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 		
 		return r;
 	}
-
+	
+	/**
+	 * função de atualização que recebe uma variavel do tipo cliente como parametro 
+	 */
+	
 	@Override
 	public int update(Cliente arg1) {
 		int r = 0;
@@ -80,6 +103,10 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 		
 		return r;
 	}
+	
+	/**
+	 * função de deleção que recebe uma variavek do tipo cliente
+	 */
 
 	@Override
 	public int delete(Cliente arg1) {
@@ -110,7 +137,10 @@ public class ClienteDAO extends AbstractDAO<Cliente>  {
 		
 		return r;
 	}
-
+	
+	/**
+	 * função de seleção que recebe uma varivael do tipo cliente
+	 */
 	@Override
 	public Cliente select(int cpf) {
 		
