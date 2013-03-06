@@ -13,19 +13,19 @@ public class ActionSalvarCliente {
 	public void salvaContato(JTextField[] text) {
 		// TODO Auto-generated method stub
 		
-		Cliente c= new Cliente();
+		Cliente cliente= new Cliente();
 		
-		c.setNome(text[0].getText());
-		c.setEndereco(text[1].getText());
+		cliente.setNome(text[0].getText());
+		cliente.setEndereco(text[1].getText());
 		
 		try {
-			c.setCpf(Integer.parseInt(text[2].getText()));
+			cliente.setCpf(Integer.parseInt(text[2].getText()));
 			
 			AbstractDAO<Cliente> db= new ClienteDAO();
 			
-			int r = db.insert(c);
+			int result = db.insert(cliente);
 	
-			if (r == 1) {
+			if (result == 1) {
 				
 				JFrameCliente jframe= new JFrameCliente();
 				jframe.montaClientes();

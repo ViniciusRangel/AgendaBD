@@ -17,12 +17,12 @@ public class ActionSelecionarCliente {
 				
 				AbstractDAO<Cliente> db = new ClienteDAO();
 
-				Cliente c = db.select(cliente.getId());
+				Cliente cliente1 = db.select(cliente.getId());
 
-				text[3].setText(String.valueOf(c.getId()));
-				text[0].setText(c.getNome());
-				text[1].setText(c.getEndereco());
-				text[2].setText(String.valueOf(c.getCpf()));
+				text[3].setText(String.valueOf(cliente1.getId()));
+				text[0].setText(cliente1.getNome());
+				text[1].setText(cliente1.getEndereco());
+				text[2].setText(String.valueOf(cliente1.getCpf()));
 				
 			}		
 	}

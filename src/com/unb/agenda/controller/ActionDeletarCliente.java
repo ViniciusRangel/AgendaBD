@@ -19,9 +19,9 @@ public class ActionDeletarCliente {
 
 			AbstractDAO<Cliente> db= new ClienteDAO();
 
-			int r = db.delete(c);
+			int result = db.delete(c);
 
-			if (r == 1) {
+			if (result == 1) {
 				
 				JFrameCliente jframe= new JFrameCliente();
 				jframe.montaClientes();
@@ -35,7 +35,7 @@ public class ActionDeletarCliente {
 			
 		} catch (IllegalArgumentException e) {
 			
-			String msg_corpo = "Erro ao Deletar um contato";
+			String msg_corpo = "Erro ao Deletar um Cliente";
 			String msg_titulo = "Erro...";
 			int msg_tipo = JOptionPane.ERROR_MESSAGE;
 			

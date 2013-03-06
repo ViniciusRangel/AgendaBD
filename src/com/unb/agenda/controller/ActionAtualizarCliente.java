@@ -13,20 +13,20 @@ public class ActionAtualizarCliente {
 	public void atualizarCliente(JTextField[] text){
 		
 		
-		Cliente c = new Cliente();
+		Cliente cliente = new Cliente();
 		
 		try {
 			
-			c.setNome(text[0].getText());
-			c.setEndereco(text[1].getText());
-			c.setCpf(Integer.parseInt(text[2].getText()));
-			c.setId(Integer.parseInt(text[3].getText()));
+			cliente.setNome(text[0].getText());
+			cliente.setEndereco(text[1].getText());
+			cliente.setCpf(Integer.parseInt(text[2].getText()));
+			cliente.setId(Integer.parseInt(text[3].getText()));
 
 			AbstractDAO<Cliente> db= new ClienteDAO();
 
-			int r = db.update(c);
+			int result = db.update(cliente);
 			
-			if (r == 1) {
+			if (result == 1) {
 				
 				JFrameCliente jframe= new JFrameCliente();
 				jframe.montaClientes();

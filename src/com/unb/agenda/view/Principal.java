@@ -8,8 +8,8 @@ public class Principal {
 	 */
 	public static void main(String[] args) {
 		
-		JFramePrincipal jp = new JFramePrincipal();
-		jp.setVisible(true);
+		JFrameCliente jframe = new JFrameCliente();
+		jframe.setVisible(true);
 	}
 
 }

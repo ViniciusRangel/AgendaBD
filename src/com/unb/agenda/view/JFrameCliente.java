@@ -31,10 +31,10 @@ import javax.swing.JComboBox;
 public class JFrameCliente extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textField_Nome;
+	private JTextField textField_Endereco;
+	private JTextField textField_Cpf;
+	private JTextField textField_ID;
 	private JComboBox comboBox;
 
 	/**
@@ -43,12 +43,13 @@ public class JFrameCliente extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					JFrameCliente frame = new JFrameCliente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				
+					try {
+							JFrameCliente frame = new JFrameCliente();
+							frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}													
 			}
 		});
 	}
@@ -84,53 +85,58 @@ public class JFrameCliente extends JFrame {
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
-		JLabel lblNome = new JLabel("ID");
-		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNome.setBounds(10, 57, 46, 14);
-		panel_2.add(lblNome);
-				JLabel lblNewLabel = new JLabel("Endereco");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(10, 128, 62, 14);
-		panel_2.add(lblNewLabel);
+		JLabel lblId = new JLabel("ID");
+		lblId.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblId.setBounds(10, 57, 46, 14);
+		panel_2.add(lblId);
+				JLabel lblEndereco = new JLabel("Endereco");
+		lblEndereco.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblEndereco.setBounds(10, 128, 62, 14);
+		panel_2.add(lblEndereco);
 		
 		JLabel lblCpf = new JLabel("Cpf");
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCpf.setBounds(10, 164, 46, 14);
 		panel_2.add(lblCpf);
 		
-		textField = new JTextField();
-		textField.setBounds(66, 85, 388, 20);
-		panel_2.add(textField);
-		textField.setColumns(10);
+		JLabel lblCliente = new JLabel("Cliente");
+		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCliente.setBounds(10, 26, 46, 14);
+		panel_2.add(lblCliente);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(66, 125, 388, 20);
-		panel_2.add(textField_1);
-		textField_1.setColumns(10);
+		textField_Nome = new JTextField();
+		textField_Nome.setBounds(66, 85, 388, 20);
+		panel_2.add(textField_Nome);
+		textField_Nome.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(66, 161, 388, 20);
-		panel_2.add(textField_2);
-		textField_2.setColumns(10);
+		textField_Endereco = new JTextField();
+		textField_Endereco.setBounds(66, 125, 388, 20);
+		panel_2.add(textField_Endereco);
+		textField_Endereco.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(66, 54, 388, 20);
-		panel_2.add(textField_3);
-		textField_3.setColumns(10);
+		textField_Cpf = new JTextField();
+		textField_Cpf.setBounds(66, 161, 388, 20);
+		panel_2.add(textField_Cpf);
+		textField_Cpf.setColumns(10);
 		
-		JLabel label = new JLabel("Nome");
-		label.setFont(new Font("Tahoma", Font.BOLD, 11));
-		label.setBounds(10, 88, 46, 14);
-		panel_2.add(label);
+		textField_ID = new JTextField();
+		textField_ID.setBounds(66, 54, 388, 20);
+		panel_2.add(textField_ID);
+		textField_ID.setColumns(10);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNome.setBounds(10, 88, 46, 14);
+		panel_2.add(lblNome);
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				textField.setText("");
-				textField_1.setText("");
-				textField_2.setText("");
-				textField_3.setText("");
+				textField_Nome.setText("");
+				textField_Endereco.setText("");
+				textField_Cpf.setText("");
+				textField_ID.setText("");
 			}
 		});
 		btnLimpar.setBounds(387, 299, 89, 23);
@@ -141,17 +147,17 @@ public class JFrameCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				JTextField[] text= new JTextField[3];
-				text[0]=textField;
-				text[1]=textField_1;
-				text[2]=textField_2;
+				text[0]=textField_Nome;
+				text[1]=textField_Endereco;
+				text[2]=textField_Cpf;
 				
 				ActionSalvarCliente criador =new ActionSalvarCliente();
 				criador.salvaContato(text);
 				
-				textField.setText("");
-				textField_1.setText("");
-				textField_2.setText("");
-				textField_3.setText("");
+				textField_Nome.setText("");
+				textField_Endereco.setText("");
+				textField_Cpf.setText("");
+				textField_ID.setText("");
 			}
 		});
 		btnSalvar.setBounds(31, 299, 89, 23);
@@ -162,12 +168,12 @@ public class JFrameCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				ActionDeletarCliente deletar = new ActionDeletarCliente();
-				deletar.deletarCliente(textField_3);
+				deletar.deletarCliente(textField_ID);
 				
-				textField.setText("");
-				textField_1.setText("");
-				textField_2.setText("");
-				textField_3.setText("");
+				textField_Nome.setText("");
+				textField_Endereco.setText("");
+				textField_Cpf.setText("");
+				textField_ID.setText("");
 			}
 		});
 		btnDeletar.setBounds(147, 299, 89, 23);
@@ -178,13 +184,18 @@ public class JFrameCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				JTextField[] text= new JTextField[4];
-				text[0]=textField;
-				text[1]=textField_1;
-				text[2]=textField_2;
-				text[3]=textField_3;
+				text[0]=textField_Nome;
+				text[1]=textField_Endereco;
+				text[2]=textField_Cpf;
+				text[3]=textField_ID;
 				
 				ActionAtualizarCliente criador =new ActionAtualizarCliente();
 				criador.atualizarCliente(text);
+				
+				textField_Nome.setText("");
+				textField_Endereco.setText("");
+				textField_Cpf.setText("");
+				textField_ID.setText("");
 				
 			}
 		});
@@ -200,10 +211,10 @@ public class JFrameCliente extends JFrame {
 				JComboBox comb = (JComboBox) e.getSource();
 				
 				JTextField[] text= new JTextField[4];
-				text[0]=textField;
-				text[1]=textField_1;
-				text[2]=textField_2;
-				text[3]=textField_3;
+				text[0]=textField_Nome;
+				text[1]=textField_Endereco;
+				text[2]=textField_Cpf;
+				text[3]=textField_ID;
 				
 				ActionSelecionarCliente criador =new ActionSelecionarCliente();
 				criador.selecionarCliente(text, comb);
@@ -213,11 +224,7 @@ public class JFrameCliente extends JFrame {
 		});
 		comboBox.setBounds(66, 23, 388, 20);
 		panel_2.add(comboBox);						
-		
-		JLabel lblCliente = new JLabel("Cliente");
-		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCliente.setBounds(10, 26, 46, 14);
-		panel_2.add(lblCliente);
+				
 	}
 	
 	public void montaClientes() {
