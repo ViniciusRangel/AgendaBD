@@ -29,11 +29,11 @@ public class  JFrameCliente extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField_Nome;
-	private JTextField textField_Endereco;
-	private JTextField textField_Cpf;
-	private JTextField textField_ID;
-	private JComboBox<Cliente> comboBox;
+	private JTextField textField_Nome=null;
+	private JTextField textField_Endereco=null;
+	private JTextField textField_Cpf=null;
+	private JTextField textField_ID=null;
+	private JComboBox<Cliente> comboBox=null;
 
 	/**
 	 * Launch the application.
