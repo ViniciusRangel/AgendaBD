@@ -14,7 +14,7 @@ import java.util.Collection;
  *
  * @param <T>
  * Classe utilizada para prover as variaveis de conexão com banco de dados
- * e implemetar funções de iserir atualizar selecionar e deletar
+ * e implemetar funções de iserir atualizar selecionar e deletar  no banco
  */
 public abstract class AbstractDAO<T> {
 	protected static final String SQL_DRIVER = "com.mysql.jdbc.Driver";
